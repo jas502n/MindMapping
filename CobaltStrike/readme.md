@@ -180,7 +180,7 @@ unlink          断开与父Beacon的连接
 upload          上传文件
 ```
 
-## Fix watemark
+## Fix watermark
 
 `/common/ListenerConfig.class`
 
