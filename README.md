@@ -1,2 +1,5 @@
 # MindMapping
-Security
+
+## CobaltStrike
+
+![](././CobaltStrike/CobaltStrike.png)
