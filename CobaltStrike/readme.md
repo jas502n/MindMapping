@@ -179,3 +179,42 @@ timestomp       复制指定文件时间戳到其他文件
 unlink          断开与父Beacon的连接
 upload          上传文件
 ```
+
+## Fix watemark
+
+`/common/ListenerConfig.class`
+
+```
+    public String pad(String var1, int var2) {
+        StringBuffer var3 = new StringBuffer();
+        var3.append(var1);
+
+        while(var3.length() < var2) {
+            if (this.watermark == 0) {
+                var3.append("5O!P%@AP[4\\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*\u0000");
+            } else {
+                var3.append((char)CommonUtils.rand(255));
+            }
+        }
+
+        return var3.toString().substring(0, var2);
+    }
+```
+
+#### Change
+
+```
+    public String pad(String var1, int var2) {
+        StringBuffer var3 = new StringBuffer();
+        var3.append(var1);
+
+        while(var3.length() < var2) {
+            if (this.watermark != 0) {
+                var3.append((char)CommonUtils.rand(255));
+            } 
+        }
+
+        return var3.toString().substring(0, var2);
+    }
+
+```
